@@ -87,12 +87,19 @@ export const useGenres = () => {
 
 export const useMovieVideo = (movieId: string) => {
   return useSuspenseQuery({
-    queryKey: ["movieVideo"],
+    queryKey: ["movieVideo", movieId],
     queryFn: async () => {
-      const response = await apiBase.get<AxiosResponse<MovieVideosResponse>>(
-        `/movie/${movieId}/videos`,
-      );
-      return response.data;
+      const ptBrResponse = await apiBase.get<
+        AxiosResponse<MovieVideosResponse>
+      >(`/movie/${movieId}/videos?language=pt-BR`);
+      if (ptBrResponse.data.results && ptBrResponse.data.results.length > 0) {
+        return ptBrResponse.data;
+      }
+      const fallbackResponse = await apiBase.get<
+        AxiosResponse<MovieVideosResponse>
+      >(`/movie/${movieId}/videos`);
+
+      return fallbackResponse.data;
     },
     staleTime: 24 * 60 * 60 * 1000,
     retry: 2,

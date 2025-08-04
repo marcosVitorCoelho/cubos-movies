@@ -61,6 +61,9 @@ export default function MovieDetail() {
     return `${hours}h ${mins}m`;
   };
 
+  const movieTrailer = movieVideoData.results.filter(
+    (video) => video.type === "Trailer",
+  );
   const profit = revenue - budget;
 
   return (
@@ -199,15 +202,17 @@ export default function MovieDetail() {
               </div>
             </div>
             <div className="mt-12">
-              <h2 className="mb-6 text-2xl font-bold text-white">Trailer</h2>
-              <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
-                <div className="bg-mauvedarka-3 flex aspect-video items-center justify-center rounded-sm backdrop-blur-sm">
-                  <iframe
-                    className="h-full w-full"
-                    src={`https://www.youtube.com/embed/${movieVideoData.results[0].key}`}
-                  />
+              <h2 className="mb-6 text-2xl font-bold text-white">Trailers</h2>
+              {movieTrailer.map((MovieTrailer) => (
+                <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                  <div className="bg-mauvedarka-3 flex aspect-video items-center justify-center rounded-sm backdrop-blur-sm">
+                    <iframe
+                      className="h-full w-full"
+                      src={`https://www.youtube.com/embed/${MovieTrailer.key}`}
+                    />
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
