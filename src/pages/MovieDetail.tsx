@@ -64,8 +64,8 @@ export default function MovieDetail() {
   const profit = revenue - budget;
 
   return (
-    <div className="relative z-10 flex content-center items-center justify-center gap-2 p-4">
-      <div className="bg-background relative min-h-screen overflow-hidden">
+    <div className="relative z-10 flex content-center items-center justify-center gap-2 rounded-sm p-4">
+      <div className="bg-background relative min-h-screen overflow-hidden rounded-sm">
         {backdropUrl && (
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -82,23 +82,25 @@ export default function MovieDetail() {
                   <img
                     src={posterUrl}
                     alt={title}
-                    className="mx-auto w-full max-w-md rounded-lg shadow-2xl"
+                    className="mx-auto w-full max-w-md rounded-sm shadow-2xl"
                   />
                 )}
               </div>
               <div className="space-y-6 lg:col-span-2">
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                   <div>
-                    <h1 className="mb-2 text-4xl font-bold text-white lg:text-5xl">
+                    <h1 className="text-mauve-1 mb-2 text-4xl font-bold lg:text-5xl">
                       {title}
                     </h1>
                     {original_title && original_title !== title && (
-                      <p className="text-mauve-1 text-lg">
+                      <p className="text-mauvedark-11 text-lg">
                         Título original: {original_title}
                       </p>
                     )}
                     {tagline && (
-                      <p className="mt-2 font-medium italic">{tagline}</p>
+                      <p className="text-mauve-1 mt-2 font-light italic">
+                        {tagline}
+                      </p>
                     )}
                   </div>
                   <div className="flex flex-col items-center">
@@ -110,28 +112,28 @@ export default function MovieDetail() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-                  <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                    <p className="text-sm text-white/80">POPULARIDADE</p>
+                  <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                    <p className="text-mauvedark-11 text-sm">POPULARIDADE</p>
                     <p className="text-lg font-bold text-white">
                       {popularity.toFixed(0)}
                     </p>
                   </div>
 
-                  <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                    <p className="text-sm text-white/80">VOTOS</p>
+                  <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                    <p className="text-mauvedark-11 text-sm">VOTOS</p>
                     <p className="text-lg font-bold text-white">{vote_count}</p>
                   </div>
 
-                  <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                    <p className="text-sm text-white/80">LANÇAMENTO</p>
+                  <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                    <p className="text-mauvedark-11 text-sm">LANÇAMENTO</p>
                     <p className="text-lg font-bold text-white">
                       {formatDate(release_date)}
                     </p>
                   </div>
 
                   {runtime && (
-                    <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                      <p className="text-sm text-white/80">DURAÇÃO</p>
+                    <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                      <p className="text-mauvedark-11 text-sm">DURAÇÃO</p>
                       <p className="text-lg font-bold text-white">
                         {formatRuntime(runtime)}
                       </p>
@@ -139,21 +141,21 @@ export default function MovieDetail() {
                   )}
                 </div>
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                  <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                    <p className="text-sm text-white/80">SITUAÇÃO</p>
+                  <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                    <p className="text-mauvedark-11 text-sm">SITUAÇÃO</p>
                     <p className="font-bold text-white">Lançado</p>
                   </div>
 
-                  <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                    <p className="text-sm text-white/80">IDIOMA</p>
+                  <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                    <p className="text-mauvedark-11 text-sm">IDIOMA</p>
                     <p className="font-bold text-white">
                       {original_language.toUpperCase()}
                     </p>
                   </div>
 
                   {budget && budget > 0 && (
-                    <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                      <p className="text-sm text-white/80">ORÇAMENTO</p>
+                    <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                      <p className="text-mauvedark-11 text-sm">ORÇAMENTO</p>
                       <p className="font-bold text-white">
                         {formatCurrency(budget)}
                       </p>
@@ -161,23 +163,23 @@ export default function MovieDetail() {
                   )}
 
                   {revenue && revenue > 0 && (
-                    <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                      <p className="text-sm text-white/80">RECEITA</p>
+                    <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                      <p className="text-mauvedark-11 text-sm">RECEITA</p>
                       <p className="font-bold text-white">
                         {formatCurrency(revenue)}
                       </p>
                     </div>
                   )}
                   {profit && profit > 0 && (
-                    <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                      <p className="text-sm text-white/80">LUCRO</p>
+                    <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                      <p className="text-mauvedark-11 text-sm">LUCRO</p>
                       <p className="font-bold text-white">
                         {formatCurrency(profit)}
                       </p>
                     </div>
                   )}
                 </div>
-                <div>
+                <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
                   <h2 className="mb-3 text-xl font-bold text-white">SINOPSE</h2>
                   <p className="leading-relaxed text-white/90">{overview}</p>
                 </div>
@@ -187,7 +189,7 @@ export default function MovieDetail() {
                     {genres.map((genre, index) => (
                       <span
                         key={index}
-                        className="bg-purpledarka-3 text-movie-progress text-mauve-1 rounded-sm p-3 text-sm font-medium"
+                        className="bg-purpledarka-3 text-mauve-1 rounded-sm p-3 text-sm font-medium"
                       >
                         {genre.name}
                       </span>
@@ -198,8 +200,8 @@ export default function MovieDetail() {
             </div>
             <div className="mt-12">
               <h2 className="mb-6 text-2xl font-bold text-white">Trailer</h2>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                <div className="flex aspect-video items-center justify-center rounded-lg bg-black/50">
+              <div className="bg-mauvedarka-3 rounded-sm p-4 backdrop-blur-sm">
+                <div className="bg-mauvedarka-3 flex aspect-video items-center justify-center rounded-sm backdrop-blur-sm">
                   <iframe
                     className="h-full w-full"
                     src={`https://www.youtube.com/embed/${movieVideoData.results[0].key}`}
