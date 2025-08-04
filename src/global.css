@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "tailwindcss-radix-colors/dist/purple.css";
+@import "tailwindcss-radix-colors/dist/purplea.css";
+@import "tailwindcss-radix-colors/dist/mauve.css";
+@import "tailwindcss-radix-colors/dist/mauvea.css";
+@import "tw-animate-css";
+
+:root {
+  --movie-progress: #ffe000;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
